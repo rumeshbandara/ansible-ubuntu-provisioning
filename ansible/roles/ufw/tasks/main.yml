@@ -1,0 +1,13 @@
+---
+- name: UFW - Allow SSH
+  ufw:
+    rule : allow
+    name : OpenSSH
+  become: true
+
+- name: UFW - Deny all other incoming traffic by default
+  ufw:
+    state : enabled
+    policy : deny
+    direction: incoming
+  become: true

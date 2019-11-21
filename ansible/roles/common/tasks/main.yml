@@ -1,0 +1,10 @@
+---
+- name: Upgrade packages
+  apt: upgrade=safe
+  become: true
+- name: Install packages
+  apt:
+    name: "{{ sys_packages }}"
+    state: present
+    update_cache: yes
+  become: true

@@ -1,0 +1,2 @@
+ansible/inventory/group_vars/.vault_pass
+packer/provisioners/ansible/inventory/group_vars/.vault_pass

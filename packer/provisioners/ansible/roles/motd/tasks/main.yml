@@ -1,0 +1,9 @@
+---
+# add motd file
+- name: "[MOTD] Set motd banner"
+  template:
+    src: "motd.j2"
+    dest: "/etc/motd"
+    mode: 0700
+  become: yes
+  become_user: root
