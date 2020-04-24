@@ -1,6 +1,6 @@
 # Automate the Provisioning of Production Ubuntu Servers using Ansible, Packer & AWS <a href="https://github.com/rumeshbandara/ansible-ubuntu-provisioning"> <img border="0" alt="Ansible" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/ansible.svg" width="32" height="32"> </a><a href="https://github.com/rumeshbandara/ansible-ubuntu-provisioning"> <img border="0" alt="AWS" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/amazonaws.svg" width="32" height="32"> </a>
 
-<a href="https://github.com/rumeshbandara/ansible-ubuntu-provisioning"> <img border="0" alt="Ubuntu Provisioning" src="https://i.ibb.co/KKRtR9b/aws-ansible-packer.png"> </a>
+<a href="https://github.com/rumeshbandara/ansible-ubuntu-provisioning"> <img border="0" alt="Ubuntu Provisioning" src="http://2.bp.blogspot.com/-LnYo0Et-Ut4/Vmvak5VXGOI/AAAAAAAAA6E/II7jNkgzQpk/s200/aws_ansible_pacer.png"> </a>
 
 This project define two ways to automate the provisioning of Ubuntu servers (*Refer **Usage** section*):
 
