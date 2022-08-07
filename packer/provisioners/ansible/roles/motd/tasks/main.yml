@@ -1,9 +1,9 @@
---- 
-- 
+---
+-
   become: true
   become_user: root
   name: "[MOTD] Set motd banner"
-  template: 
+  template:
     dest: /etc/motd
     mode: 448
     src: motd.j2

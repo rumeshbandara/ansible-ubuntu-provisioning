@@ -1,32 +1,32 @@
---- 
-- 
-  group: 
+---
+-
+  group:
     name: sudo
     state: present
   name: "Ensure sudo group is present"
-- 
+-
   become: true
   become_user: root
-  lineinfile: 
+  lineinfile:
     dest: /etc/sudoers
     line: "%sudo ALL=(ALL:ALL) ALL"
     regexp: ^%sudo
     state: present
     validate: "/usr/sbin/visudo -cf %s"
   name: "Ensure sudo group has sudo privileges"
-- 
+-
   become: true
   become_user: root
   name: "Create default user"
-  user: 
+  user:
     groups: sudo
     name: "{{ username }}"
     password: "{{ password }}"
     shell: /bin/bash
     state: present
     update_password: always
-- 
-  authorized_key: 
+-
+  authorized_key:
     key: "{{ lookup('file', public_key) }}"
     user: "{{ username }}"
   become: true

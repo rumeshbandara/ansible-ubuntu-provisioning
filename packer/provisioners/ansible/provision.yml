@@ -1,13 +1,13 @@
---- 
-- 
+---
+-
   hosts: all
-  roles: 
+  roles:
     - common
     - ufw
     - motd
     - user
     - ssh
   user: "{{ initial_user }}"
-  vars_files: 
+  vars_files:
     - ./inventory/group_vars/vars.yml
     - ./inventory/group_vars/vault.yml

@@ -1,11 +1,11 @@
---- 
-- 
+---
+-
   apt: upgrade=safe
   become: true
   become_user: root
   name: "Upgrade packages"
-- 
-  apt: 
+-
+  apt:
     name: "{{ sys_packages }}"
     state: present
     update_cache: true

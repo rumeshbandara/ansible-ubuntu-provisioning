@@ -1,18 +1,18 @@
---- 
-- 
+---
+-
   become: true
   become_user: root
-  lineinfile: 
+  lineinfile:
     dest: /etc/ssh/sshd_config
     line: "PermitRootLogin no"
     regexp: ^PermitRootLogin
     state: present
   name: "Disable root login"
   notify: "restart ssh"
-- 
+-
   become: true
   become_user: root
-  lineinfile: 
+  lineinfile:
     dest: /etc/ssh/sshd_config
     line: "PasswordAuthentication no"
     regexp: "^#?PasswordAuthentication"

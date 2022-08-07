@@ -1,14 +1,14 @@
---- 
-- 
+---
+-
   become: true
   name: "UFW - Allow SSH"
-  ufw: 
+  ufw:
     name: OpenSSH
     rule: allow
-- 
+-
   become: true
   name: "UFW - Deny all other incoming traffic by default"
-  ufw: 
+  ufw:
     direction: incoming
     policy: deny
     state: enabled
