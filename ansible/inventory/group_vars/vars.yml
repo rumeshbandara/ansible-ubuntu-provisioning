@@ -1,5 +1,11 @@
-    initial_user: ubuntu
-    username: user
-    password: "{{ vault_userpasswd }}"
-    public_key: ~/.ssh/id_rsa.pub
-    sys_packages: [ 'python-apt', 'base-files', 'vim', 'git-core', 'ufw' ]
+--- 
+initial_user: ubuntu
+password: "{{ vault_userpasswd }}"
+public_key: ~/.ssh/id_rsa.pub
+sys_packages: 
+  - python-apt
+  - base-files
+  - vim
+  - git-core
+  - ufw
+username: user

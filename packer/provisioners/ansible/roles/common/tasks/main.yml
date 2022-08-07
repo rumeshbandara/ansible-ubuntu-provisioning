@@ -1,13 +1,14 @@
----
-- name: Upgrade packages
+--- 
+- 
   apt: upgrade=safe
-  become: yes
+  become: true
   become_user: root
-
-- name: Install packages
-  apt:
+  name: "Upgrade packages"
+- 
+  apt: 
     name: "{{ sys_packages }}"
     state: present
-    update_cache: yes
-  become: yes
+    update_cache: true
+  become: true
   become_user: root
+  name: "Install packages"

@@ -1,49 +1,50 @@
 {
-    "variables": {
-        "aws_access_key": "",
-        "aws_secret_key": "",
-        "ami_name": "ubuntu-16-ami",
-        "aws_region": "ap-southeast-2",
-        "ssh_username": "ubuntu",
-        "vpc_id": "",
-        "subnet_id": ""
-    },
-    "builders": [{
-        "type": "amazon-ebs",
-        "access_key": "{{user `aws_access_key`}}",
-        "secret_key": "{{user `aws_secret_key`}}",
-        "region": "{{user `aws_region`}}",
-        "instance_type": "t2.micro",
-        "force_deregister": "true",
-        "ssh_username": "{{user `ssh_username`}}",
-        "communicator": "ssh",
-        "associate_public_ip_address": true,
-        "subnet_id": "{{user `subnet_id`}}",
-        "ami_name": "{{user `ami_name`}}",
-        "source_ami_filter": {
-            "filters": {
-                "virtualization-type": "hvm",
-                "name": "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*",
-                "root-device-type": "ebs"
-            },
-            "owners": ["099720109477"],
-            "most_recent": true
-        },
-        "run_tags": {
-            "Name": "packer-build-ubuntu-image"
-        }
-    }],
-    "provisioners": [{
-            "type": "shell",
-            "inline": "while [ ! -f /var/lib/cloud/instance/boot-finished ]; do echo 'Waiting for cloud-init...'; sleep 1; done"
-        },
-        {
-            "type": "shell",
-            "script": "./provisioners/scripts/bootstrap.sh"
-        },
-        {
-            "type": "ansible",
-            "playbook_file": "./provisioners/ansible/provision.yml",
-	    "ansible_env_vars": [ "ANSIBLE_CONFIG=./provisioners/ansible/ansible.cfg" ]
-        }]
+	"variables": {
+		"aws_access_key": "",
+		"aws_secret_key": "",
+		"ami_name": "ubuntu-16-ami",
+		"aws_region": "ap-southeast-2",
+		"ssh_username": "ubuntu",
+		"vpc_id": "",
+		"subnet_id": ""
+	},
+	"builders": [{
+		"type": "amazon-ebs",
+		"access_key": "{{user `aws_access_key`}}",
+		"secret_key": "{{user `aws_secret_key`}}",
+		"region": "{{user `aws_region`}}",
+		"instance_type": "t2.micro",
+		"force_deregister": "true",
+		"ssh_username": "{{user `ssh_username`}}",
+		"communicator": "ssh",
+		"associate_public_ip_address": true,
+		"subnet_id": "{{user `subnet_id`}}",
+		"ami_name": "{{user `ami_name`}}",
+		"source_ami_filter": {
+			"filters": {
+				"virtualization-type": "hvm",
+				"name": "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*",
+				"root-device-type": "ebs"
+			},
+			"owners": ["099720109477"],
+			"most_recent": true
+		},
+		"run_tags": {
+			"Name": "packer-build-ubuntu-image"
+		}
+	}],
+	"provisioners": [{
+			"type": "shell",
+			"inline": "while [ ! -f /var/lib/cloud/instance/boot-finished ]; do echo 'Waiting for cloud-init...'; sleep 1; done"
+		},
+		{
+			"type": "shell",
+			"script": "./provisioners/scripts/bootstrap.sh"
+		},
+		{
+			"type": "ansible",
+			"playbook_file": "./provisioners/ansible/provision.yml",
+			"ansible_env_vars": ["ANSIBLE_CONFIG=./provisioners/ansible/ansible.cfg"]
+		}
+	]
 }

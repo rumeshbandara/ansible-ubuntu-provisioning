@@ -10,7 +10,7 @@ on:
   push:
     branches: [ "master" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "feature0.1" ]
 jobs:
   run-lint:
     runs-on: ubuntu-latest

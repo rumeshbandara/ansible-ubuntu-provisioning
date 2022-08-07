@@ -1,7 +1,8 @@
----
-- name: restart ssh
-  service:
+--- 
+- 
+  become: true
+  become_user: root
+  name: "restart ssh"
+  service: 
     name: ssh
     state: restarted
-  become: yes
-  become_user: root
