@@ -6,3 +6,4 @@
     dest: /etc/motd
     mode: 448
     src: motd.j2
+    
